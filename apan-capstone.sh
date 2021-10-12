@@ -6,8 +6,7 @@ SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 echo "Configure new user."
 read -p "Username: " Username
 adduser $Username
-cp $SCRIPT_DIR/ /home/$Username/setup
-cd /home/$Username/setup
+usermod -aG sudo $Username
 
 # WSL configurations
 echo "Configure WSL"
