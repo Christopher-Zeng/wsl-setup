@@ -8,8 +8,9 @@ echo "Install Python dependencies and Jupyter"
 sudo apt-get update && sudo apt-get install -y python3-pip python3-venv
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath
-eval "$(/home/caesarrav/.local/bin/register-python-argcomplete pipx)"
-/home/caesarrav/.local/bin/pipx install virtualenv
+export PATH="$PATH:/home/caesarrav/.local/bin"
+eval "$(register-python-argcomplete pipx)"
+pipx install virtualenv
 
 # Setup project virtual environment
 virtualenv ~/csci567-lab/env
