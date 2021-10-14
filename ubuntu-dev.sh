@@ -1,6 +1,9 @@
 # User configuration
 echo "Configure new user."
-read -p "Username: " Username
+if [-z $Username]
+then 
+    read -p "Username: " Username
+fi
 adduser $Username
 usermod -aG sudo $Username
 git clone https://github.com/Christopher-Zeng/wsl-setup.git /home/$Username/setup

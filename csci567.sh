@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# From ubuntu-dev
+if [$user != "caesarrav"]
+then
+    export Username="caesarrav"
+    bash ./ubuntu-dev.sh
+    su caesarrav -c 'bash ~/setup/csci567.sh'
+fi
+
 # Clone the csci567-lab repo
 git clone https://github.com/Christopher-Zeng/csci567-lab.git ~/csci567-lab
 
@@ -14,9 +22,8 @@ pipx install virtualenv
 
 # Setup project virtual environment
 virtualenv ~/csci567-lab/env
-printf "\n# Start up within project virtual environment.\ncd ~/csci567-lab\n./env/bin/activate\n" >> ~/.bashrc
+printf "\n# Start up within project virtual environment.\ncd ~/csci567-lab\nsource ./env/bin/activate\n" >> ~/.bashrc
 cd ~/csci567-lab
 source ./env/bin/activate
 python3 -m pip install --upgrade pip
 pip install --upgrade jupyterlab numpy pandas
-printf "\n# Start up Jupyter Lab when distro starts.\njupyter-lab --no-browser\n" >> ~/.bashrc
