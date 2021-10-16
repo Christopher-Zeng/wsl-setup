@@ -54,7 +54,7 @@ EOF
 echo "${Green}Installation completed.${Normal}"
 echo "${Green}Setup project environment.${Normal}"
 su - $distroUsername << "EOF"
-virtualenv -p pypy3 /home/$distroUsername/csci567-lab/env
+virtualenv -p pypy3 ~/csci567-lab/env
 printf "\n# Start up within project virtual environment.\ncd ~/csci567-lab\nsource ./env/bin/activate\n" >> ~/.bashrc
 source ~/csci567-lab/env/bin/activate
 pip install --upgrade pip jupyterlab numpy pandas
