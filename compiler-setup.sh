@@ -19,6 +19,7 @@ echo "${Lime_yellow}Started $Script_name.${Normal}"
 # Build Essentials
 echo "${Green}Install C and C++ dev tools.${Normal}"
 sudo apt install -y build-essential debian-keyring gdb g++-10 g++-multilib g++-9-multilib g++-10-multilib clang-12
+echo "${Green}Installation completes.${Normal}"
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"

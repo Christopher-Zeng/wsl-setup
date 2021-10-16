@@ -31,7 +31,7 @@ echo "${Green}Set the current user to distro default.${Normal}"
 sudo printf "[user]\ndefault=\"$distroUsername\"\n" >> /etc/wsl.conf
 echo "The current content of /etc/wsl.conf is:"
 cat /etc/wsl.conf
-echo "${Green}User setup complete.${Normal}"
+echo "${Green}User setup completes.${Normal}"
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"

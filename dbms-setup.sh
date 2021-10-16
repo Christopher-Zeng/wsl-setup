@@ -24,7 +24,7 @@ sudo apt update && sudo apt -y install postgresql sqlite3
 sudo service postgresql start
 sudo -u postgres psql -c "\\password"
 printf "\n# Start Postgresql on login.\nservice postgresql start\n" >> ~/.bashrc
-
+echo "${Green}Installation completes.${Normal}"
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"

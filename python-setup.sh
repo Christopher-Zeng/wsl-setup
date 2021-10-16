@@ -19,6 +19,7 @@ echo "${Lime_yellow}Started $Script_name.${Normal}"
 # Install Python and dependencies
 echo "${Green}Install pip venv and PyPy.${Normal}"
 sudo apt update && sudo apt install -y python3-pip python3-venv pypy3
+echo "${Green}Installation completes.${Normal}"
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"
