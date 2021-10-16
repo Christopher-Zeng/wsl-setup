@@ -20,7 +20,7 @@ echo "${Lime_yellow}Started $Script_name.${Normal}"
 echo "${Green}Install Python virtualenv.${Normal}"
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath 
-export PATH="$PATH:/home/$distroUsername/.local/bin"
+PATH="$PATH:/home/$distroUsername/.local/bin"
 eval "$(register-python-argcomplete pipx)"
 pipx install virtualenv
 echo "${Green}Installation completed.${Normal}"
