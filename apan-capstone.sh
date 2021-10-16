@@ -19,33 +19,34 @@ echo "${Lime_yellow}Started $Script_name.${Normal}"
 # Setup user
 export distroUsername="capstone"
 echo "${Green}Setup user for the distro.${Normal}"
-bash $Script_dir/user-setup.sh
+$Script_dir/user-setup.sh
 # Update APT
 echo "${Green}Update APT${Normal}"
-bash $Script_dir/apt-setup.sh
+$Script_dir/apt-setup.sh
 # Setup Python
 echo "${Green}Setup Python.${Normal}"
-bash $Script_dir/python-setup.sh
+$Script_dir/python-setup.sh
 # Setup R
 echo "${Green}Setup R and RStudio.${Normal}"
-bash $Script_dir/R-setup.sh
+$Script_dir/R-setup.sh
 # Setup DBMS
 echo "${Green}Setup DBMS backends.${Normal}"
-bash $Script_dir/dbms-setup.sh
+$Script_dir/dbms-setup.sh
+# Setup CUDA
+echo "${Green}Setup CUDA support.${Normal}"
+$Script_dir/cuda-setup.sh
 
 # Setup project environment
 
 # Distro configuration
-mkdir /home/$distroUsername/setup/
-cp $Script_dir/ /home/$distroUsername/setup/
 echo "${Green}Configure Git.${Normal}"
-bash $Script_dir/git-config.sh
+$Script_dir/git-config.sh
 echo "${Green}Configure Python virtualenv.${Normal}"
-su $distroUsername -c "bash /home/$distroUsername/setup/virtualenv-config.sh"
+sudo -u $distroUsername $Script_dir/virtualenv-config.sh
 
 # Clone the apan-capstone repo
 echo "${Green}Clone project git repo.${Normal}"
-su $distroUsername -c "git clone https://github.com/Christopher-Zeng/capstone.git"
+sudo -u $distroUsername git clone https://github.com/Christopher-Zeng/capstone.git /home/$distroUsername/capstone
 echo "${Green}Git repo cloned.${Normal}"
 
 # Setup project environment
@@ -53,7 +54,6 @@ echo "${Green}Setup project environment.${Normal}"
 su - $distroUsername << "EOF"
 pipx install pgadmin4
 virtualenv ~/capstone/env
-printf "\n# Start up RStudio on distro login.\nsudo service rstudio-server start.\n" >> ~/.bashrc
 printf "\n# Start up within project virtual environment.\ncd ~/csci567-lab\nsource ./env/bin/activate\n" >> ~/.bashrc
 source ~/capstone/env/bin/activate
 pip install --upgrade pip jupyterlab numpy pandas
