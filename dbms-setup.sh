@@ -16,11 +16,13 @@ Underline=$(tput smul)
 # Execution begins
 echo "${Lime_yellow}Started $Script_name.${Normal}"
 
-# APT Maintenance
-echo "${Green}APT upgrade and cleanup.${Normal}"
-sudo apt update && sudo apt full-upgrade -y
-sudo apt autoremove -y && sudo apt clean
-echo "${Green}APT upgraded.${Normal}"
+# Database backend
+echo "${Green}Install DBMS backends.${Normal}"
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt update sudo apt -y install postgresql sqlite3
+sudo -u postgres psql -c "\\password"
+
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"

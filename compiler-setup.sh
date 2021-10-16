@@ -16,11 +16,9 @@ Underline=$(tput smul)
 # Execution begins
 echo "${Lime_yellow}Started $Script_name.${Normal}"
 
-# APT Maintenance
-echo "${Green}APT upgrade and cleanup.${Normal}"
-sudo apt update && sudo apt full-upgrade -y
-sudo apt autoremove -y && sudo apt clean
-echo "${Green}APT upgraded.${Normal}"
+# Build Essentials
+echo "${Green}Install C and C++ dev tools.${Normal}"
+sudo apt install -y build-essential debian-keyring gdb g++-10 g++-multilib g++-9-multilib g++-10-multilib clang-12
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 Script_dir="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 Script_name="$(basename $BASH_SOURCE)" 
 
@@ -16,6 +17,7 @@ Underline=$(tput smul)
 echo "${Lime_yellow}Started $Script_name.${Normal}"
 
 # Install Python and dependencies
+echo "${Green}Install pip venv and PyPy.${Normal}"
 sudo apt update && sudo apt install -y python3-pip python3-venv pypy3
 
 # Execution ends

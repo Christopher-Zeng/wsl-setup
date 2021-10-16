@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 Script_dir="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 Script_name="$(basename $BASH_SOURCE)" 
 

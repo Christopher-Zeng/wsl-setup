@@ -29,6 +29,7 @@ echo "${Green}Setup Python.${Normal}"
 bash $Script_dir/python-setup.sh
 
 # Setup project environment
+
 # Git configurations
 echo "${Green}Configure Git settings.${Normal}"
 git config --system credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
@@ -37,10 +38,12 @@ git config --system user.email '32022231+Christopher-Zeng@users.noreply.github.c
 echo "the current git configuration is:"
 git config --list
 echo "${Green}Git configuration completed.${Normal}"
+
 # Clone the csci567-lab repo
 echo "${Green}Clone project git repo.${Normal}"
 su $distroUsername -c "git clone https://github.com/Christopher-Zeng/csci567-lab.git ~/csci567-lab"
 echo "${Green}Git repo cloned.${Normal}"
+
 # Setup project virtual environment
 echo "${Green}Install virtualenv.${Normal}"
 su - $distroUsername << "EOF"
