@@ -18,9 +18,12 @@ Underline=$(tput smul)
 echo "${Lime_yellow}Started csci567 script.${Normal}"
 
 # Setup user
-distroUsername="chris-zeng"
+export distroUsername="chris-zeng"
 echo "${Green}Setup user for the distro.${Normal}"
 bash $Script_dir/user-setup.sh
+# Update APT
+echo "${Green}Update APT${Normal}"
+bash $Script_dir/apt-setup.sh
 # Setup Python
 echo "${Green}Setup Python.${Normal}"
 bash $Script_dir/python-setup.sh
@@ -40,16 +43,17 @@ su $distroUsername -c "git clone https://github.com/Christopher-Zeng/csci567-lab
 echo "${Green}Git repo cloned.${Normal}"
 # Setup project virtual environment
 echo "${Green}Install virtualenv.${Normal}"
-su $distroUsername -c << "EOF"
+su - $distroUsername << "EOF"
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath
-PATH="$PATH:/home/caesarrav/.local/bin"
+EOF
+su - $distroUsername << "EOF"
 eval "$(register-python-argcomplete pipx)"
 pipx install virtualenv
 EOF
 echo "${Green}Installation completed.${Normal}"
 echo "${Green}Setup project environment.${Normal}"
-su $distroUsername -c << "EOF"
+su - $distroUsername << "EOF"
 virtualenv -p pypy3 /home/$distroUsername/csci567-lab/env
 printf "\n# Start up within project virtual environment.\ncd ~/csci567-lab\nsource ./env/bin/activate\n" >> ~/.bashrc
 source ~/csci567-lab/env/bin/activate

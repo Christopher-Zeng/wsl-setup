@@ -15,8 +15,11 @@ Underline=$(tput smul)
 # Execution begins
 echo "${Lime_yellow}Started $Script_name.${Normal}"
 
-# Install Python and dependencies
-sudo apt update && sudo apt install -y python3-pip python3-venv pypy3
+# APT Maintenance
+echo "${Green}APT upgrade and cleanup.${Normal}"
+sudo apt update && sudo apt full-upgrade -y
+sudo apt autoremove -y && sudo apt clean
+echo "${Green}APT upgraded.${Normal}"
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"
