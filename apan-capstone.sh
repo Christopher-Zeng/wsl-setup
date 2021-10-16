@@ -36,10 +36,12 @@ bash $Script_dir/dbms-setup.sh
 # Setup project environment
 
 # Distro configuration
+mkdir /home/$distroUsername/setup/
+cp $Script_dir/ /home/$distroUsername/setup/
 echo "${Green}Configure Git.${Normal}"
-sudo -u $distroUsername bash $Script_dir/git-config.sh
+bash $Script_dir/git-config.sh
 echo "${Green}Configure Python virtualenv.${Normal}"
-sudo -u $distroUsername bash $Script_dir/virtualenv-config.sh
+su $distroUsername -c "bash /home/$distroUsername/setup/virtualenv-config.sh"
 
 # Clone the apan-capstone repo
 echo "${Green}Clone project git repo.${Normal}"

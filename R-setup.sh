@@ -22,7 +22,7 @@ wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sud
 add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 sudo apt update && sudo apt install -y r-base r-base-dev gdebi-core
 wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-351-amd64.deb
-sudo gdebi rstudio-server-2021.09.0-351-amd64.deb
+sudo gdebi -n rstudio-server-2021.09.0-351-amd64.deb
 echo "${Green}Installation completes.${Normal}"
 
 # Execution ends
