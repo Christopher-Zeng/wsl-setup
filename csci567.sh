@@ -45,7 +45,7 @@ echo "${Green}Git repo cloned.${Normal}"
 echo "${Green}Install virtualenv.${Normal}"
 su - $distroUsername << "EOF"
 python3 -m pip install --user pipx
-python3 -m pipx ensurepath
+python3 -m pipx ensurepath 
 EOF
 su - $distroUsername << "EOF"
 eval "$(register-python-argcomplete pipx)"
@@ -54,7 +54,7 @@ EOF
 echo "${Green}Installation completed.${Normal}"
 echo "${Green}Setup project environment.${Normal}"
 su - $distroUsername << "EOF"
-virtualenv -p pypy3 ~/csci567-lab/env
+virtualenv ~/csci567-lab/env
 printf "\n# Start up within project virtual environment.\ncd ~/csci567-lab\nsource ./env/bin/activate\n" >> ~/.bashrc
 source ~/csci567-lab/env/bin/activate
 pip install --upgrade pip jupyterlab numpy pandas
