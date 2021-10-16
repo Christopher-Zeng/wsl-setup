@@ -23,6 +23,7 @@ add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_relea
 sudo apt update && sudo apt install -y r-base r-base-dev gdebi-core
 wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-351-amd64.deb
 sudo gdebi -n rstudio-server-2021.09.0-351-amd64.deb
+printf "\n# Start RStduio Server on login.\nservice rstudio-server start\n" >> ~/.bashrc
 echo "${Green}Installation completes.${Normal}"
 
 # Execution ends
