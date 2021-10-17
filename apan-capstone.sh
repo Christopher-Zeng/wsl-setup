@@ -35,6 +35,9 @@ $Script_dir/dbms-setup.sh
 # Setup CUDA
 echo "${Green}Setup CUDA support.${Normal}"
 $Script_dir/cuda-setup.sh
+# Setup pgadmin4
+echo "${Green}Setup pgadmin4.${Normal}"
+$Script_dir/pgadmin4-setup.sh
 
 # Setup project environment
 
@@ -52,7 +55,6 @@ echo "${Green}Git repo cloned.${Normal}"
 # Setup project environment
 echo "${Green}Setup project environment.${Normal}"
 su - $distroUsername << "EOF"
-pipx install pgadmin4
 virtualenv ~/capstone/env
 printf "\n# Start up within project virtual environment.\ncd ~/capstone\nsource ./env/bin/activate\n" >> ~/.bashrc
 source ~/capstone/env/bin/activate
