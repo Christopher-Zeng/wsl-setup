@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -v
+#!/usr/bin/env bash
 Script_dir="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 Script_name="$(basename $BASH_SOURCE)" 
 
@@ -40,9 +40,9 @@ $Script_dir/cuda-setup.sh
 
 # Distro configuration
 echo "${Green}Configure Git.${Normal}"
-$Script_dir/git-config.sh
+sudo -u $distroUsername $Script_dir/git-config.sh
 echo "${Green}Configure Python virtualenv.${Normal}"
-sudo -u $distroUsername $Script_dir/virtualenv-config.sh
+sudo -u $distroUsername distroUsername=$distroUsername $Script_dir/virtualenv-config.sh
 
 # Clone the apan-capstone repo
 echo "${Green}Clone project git repo.${Normal}"
