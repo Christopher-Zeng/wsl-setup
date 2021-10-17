@@ -18,9 +18,9 @@ echo "${Lime_yellow}Started $Script_name.${Normal}"
 
 # Git configurations
 echo "${Green}Configure Git settings.${Normal}"
-git config --system credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
-git config --system user.name 'Christopher-Zeng'
-git config --system user.email '32022231+Christopher-Zeng@users.noreply.github.com'
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
+git config --global user.name 'Christopher-Zeng'
+git config --global user.email '32022231+Christopher-Zeng@users.noreply.github.com'
 echo "the current git configuration is:"
 git config --list
 echo "${Green}Configuration completed.${Normal}"
