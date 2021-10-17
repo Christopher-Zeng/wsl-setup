@@ -54,7 +54,7 @@ echo "${Green}Setup project environment.${Normal}"
 su - $distroUsername << "EOF"
 pipx install pgadmin4
 virtualenv ~/capstone/env
-printf "\n# Start up within project virtual environment.\ncd ~/csci567-lab\nsource ./env/bin/activate\n" >> ~/.bashrc
+printf "\n# Start up within project virtual environment.\ncd ~/capstone\nsource ./env/bin/activate\n" >> ~/.bashrc
 source ~/capstone/env/bin/activate
 pip install --upgrade pip jupyterlab numpy pandas
 EOF
