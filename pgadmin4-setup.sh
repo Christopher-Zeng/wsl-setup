@@ -29,6 +29,7 @@ sudo mkdir /var/log/pgadmin
 sudo chown $distroUsername /var/lib/pgadmin
 sudo chown $distroUsername /var/log/pgadmin
 # Install pgadmin4
+sudo -u $distroUsername pip install pipx
 sudo -u $distroUsername pipx install pgadmin4
 
 # Execution ends
