@@ -25,7 +25,7 @@ echo "${Green}Update APT${Normal}"
 $Script_dir/apt-setup.sh
 # Setup Python
 echo "${Green}Setup compilers and build tools.${Normal}"
-$Script_dir/compilers.sh
+$Script_dir/compilers-setup.sh
 # Setup Python
 echo "${Green}Setup Python.${Normal}"
 $Script_dir/python-setup.sh
