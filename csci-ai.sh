@@ -14,7 +14,7 @@ Normal=$(tput sgr0)
 Underline=$(tput smul)
 
 # Execution begins
-echo "${Lime_yellow}Started csci567 script.${Normal}"
+echo "${Lime_yellow}Started csci AI script.${Normal}"
 
 # Setup user
 export distroUsername="chris-zeng"
@@ -47,11 +47,10 @@ echo "${Green}Git repo cloned.${Normal}"
 echo "${Green}Setup project environment.${Normal}"
 su - $distroUsername << "EOF"
 virtualenv ~/csci567-lab/env
-printf "\n# Start up within project virtual environment.\ncd ~/csci567-lab\nsource ./env/bin/activate\n" >> ~/.bashrc
 source ~/csci567-lab/env/bin/activate
 pip install --upgrade pip jupyterlab numpy pandas
 EOF
 echo "${Green}Project environment setup completed.${Normal}"
 
 # Execution ends
-echo "${Lime_yellow}Ended csci567 script.${Normal}"
+echo "${Lime_yellow}Ended csci AI script.${Normal}"
