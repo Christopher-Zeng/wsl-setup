@@ -24,7 +24,6 @@ wget https://developer.download.nvidia.com/compute/cuda/11.4.0/local_installers/
 sudo dpkg -i cuda-repo-wsl-ubuntu-11-4-local_11.4.0-1_amd64.deb
 sudo apt-key add /var/cuda-repo-wsl-ubuntu-11-4-local/7fa2af80.pub
 sudo apt update && sudo apt -y install cuda
-echo "${Green}Install DBMS backends.${Normal}"
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"
