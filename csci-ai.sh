@@ -38,19 +38,12 @@ sudo -u $distroUsername $Script_dir/git-config.sh
 echo "${Green}Configure Python virtualenv.${Normal}"
 sudo -u $distroUsername distroUsername=$distroUsername $Script_dir/virtualenv-config.sh
 
-# Clone the csci567-lab repo
+# Clone the csci repos
 echo "${Green}Clone project git repo.${Normal}"
 sudo -u $distroUsername git clone https://github.com/Christopher-Zeng/csci567-lab.git /home/$distroUsername/csci567-lab
+sudo -u $distroUsername git clone https://github.com/Christopher-Zeng/csci561-lab.git /home/$distroUsername/csci561-lab
+sudo -u $distroUsername git clone https://github.com/Christopher-Zeng/csci544-lab.git /home/$distroUsername/csci544-lab
 echo "${Green}Git repo cloned.${Normal}"
-
-# Setup project environment
-echo "${Green}Setup project environment.${Normal}"
-su - $distroUsername << "EOF"
-virtualenv ~/csci567-lab/env
-source ~/csci567-lab/env/bin/activate
-pip install --upgrade pip jupyterlab numpy pandas
-EOF
-echo "${Green}Project environment setup completed.${Normal}"
 
 # Execution ends
 echo "${Lime_yellow}Ended csci AI script.${Normal}"
