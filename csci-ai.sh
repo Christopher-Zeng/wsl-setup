@@ -26,15 +26,16 @@ $Script_dir/apt-setup.sh
 # Setup Python
 echo "${Green}Setup Python.${Normal}"
 $Script_dir/python-setup.sh
+# Setup C Compilers
+echo "${Green}Setup C Compilers.${Normal}"
+$Script_dir/compiler-setup.sh
 # Setup CUDA
 echo "${Green}Setup CUDA support.${Normal}"
 $Script_dir/cuda-setup.sh
 
-# Setup project environment
-
 # Distro configuration
 echo "${Green}Configure Git.${Normal}"
-sudo -u $distroUsername $Script_dir/git-config.sh
+sudo -u $distroUsername distroUsername=$distroUsername $Script_dir/git-config.sh
 echo "${Green}Configure Python virtualenv.${Normal}"
 sudo -u $distroUsername distroUsername=$distroUsername $Script_dir/virtualenv-config.sh
 
