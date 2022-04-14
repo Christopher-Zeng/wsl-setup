@@ -18,7 +18,7 @@ echo "${Lime_yellow}Started $Script_name.${Normal}"
 
 # Install Python and dependencies
 echo "${Green}Install pip venv and PyPy.${Normal}"
-sudo add-apt-repository ppa:deadsnakes/ppa
+sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt remove --purge -y python3-apt && sudo apt autoremove -y && sudo apt install -y python3-apt
 sudo apt update && sudo apt install -y python3-pip python3-venv pypy3 python3.10-full python3.9-full python3.8-full python3.7-full python3.6-full python3.10-dev
 echo "${Green}Installation completes.${Normal}"
