@@ -18,6 +18,7 @@ echo "${Lime_yellow}Started $Script_name.${Normal}"
 
 # CUDA support
 echo "${Green}Install CUDA toolkits for WSL.${Normal}"
+sudo apt-get install -y software-properties-common
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
 sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
 sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub

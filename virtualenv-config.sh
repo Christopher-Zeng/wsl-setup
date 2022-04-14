@@ -27,8 +27,8 @@ echo "${Green}Installation completed.${Normal}"
 
 # Setup miniconda and mamba
 echo "${Green}Install Miniconda.${Normal}"
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-bash miniconda.sh -b -p /home/$distroUsername/miniconda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh
+bash /tmp/miniconda.sh -b -p /home/$distroUsername/miniconda
 cat >>~/.bashrc <<"EOF"
 
 # >>> conda initialize >>>
