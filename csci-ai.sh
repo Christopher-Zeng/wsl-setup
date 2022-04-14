@@ -32,6 +32,9 @@ $Script_dir/compiler-setup.sh
 # Setup CUDA
 echo "${Green}Setup CUDA support.${Normal}"
 $Script_dir/cuda-setup.sh
+# Update APT
+echo "${Green}Update APT${Normal}"
+$Script_dir/apt-setup.sh
 
 # Distro configuration
 echo "${Green}Configure Git.${Normal}"
