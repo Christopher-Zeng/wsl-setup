@@ -19,6 +19,7 @@ echo "${Lime_yellow}Started $Script_name.${Normal}"
 # APT Maintenance
 echo "${Green}APT upgrade and cleanup.${Normal}"
 sudo apt update && sudo apt full-upgrade -y
+sudo apt install software-properties-common -y
 sudo apt autoremove -y && sudo apt clean
 echo "${Green}APT upgraded.${Normal}"
 
