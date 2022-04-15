@@ -29,11 +29,11 @@ echo "${Green}Installation completed.${Normal}"
 echo "${Green}Install Miniconda.${Normal}"
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh
 bash /tmp/miniconda.sh -b -p /home/$distroUsername/miniconda
-cat >>~/.bashrc <<"EOF"
+cat >>~/.bashrc <<EOF
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/$distroUsername/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/$distroUsername/miniconda/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
