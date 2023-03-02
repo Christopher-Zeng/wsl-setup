@@ -19,11 +19,11 @@ echo "${Lime_yellow}Started $Script_name.${Normal}"
 # CUDA support
 echo "${Green}Install CUDA toolkits for WSL.${Normal}"
 sudo apt-get install -y software-properties-common
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
-sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
-sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
-sudo apt-get update && sudo apt-get install -y cuda-toolkit-11-6 libcublas-dev-11-6 libcudnn8-dev libcufft-dev-11-6 libcurand-dev-11-6 libcusolver-dev-11-6 libcusparse-dev-11-6 libcutensor-dev libnvinfer-dev
+wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-keyring_1.0-1_all.deb
+sudo dpkg -i cuda-keyring_1.0-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cuda
+echo "${Green}Installation completed.${Normal}"
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"
