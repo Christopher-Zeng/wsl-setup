@@ -16,9 +16,17 @@ Underline=$(tput smul)
 # Execution begins
 echo "${Lime_yellow}Started $Script_name.${Normal}"
 
+# Importable variable: $GitUserName
+
 # Git configurations
 echo "${Green}Configure Git settings.${Normal}"
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
+
+if [ -z "$WinUserName" ]
+then 
+    read -p "Windows User Name (Shorthand name): "$WinUserName
+fi
+
+git config --global credential.helper "/mnt/c/Users/$GitUserName/AppData/Local/Programs/Git/mingw64/bin/git-credential-manager.exe"
 git config --global user.name 'Christopher-Zeng'
 git config --global user.email '32022231+Christopher-Zeng@users.noreply.github.com'
 echo "the current git configuration is:"
