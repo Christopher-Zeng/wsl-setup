@@ -16,15 +16,12 @@ Underline=$(tput smul)
 # Execution begins
 echo "${Lime_yellow}Started $Script_name.${Normal}"
 
-# Git configurations
-echo "${Green}Configure Git settings.${Normal}"
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
-git config --global user.name 'Christopher-Zeng'
-git config --global user.email '32022231+Christopher-Zeng@users.noreply.github.com'
-echo "the current git configuration is:"
-git config --list
-echo "${Green}Configuration completed.${Normal}"
-
+# User configuration
+echo "${Green}Disable automatic generation of ResolvConf for this distro.${Normal}"
+sudo printf "[network]\ngenerateResolvConf = false\n" >> /etc/wsl.conf
+echo "The current content of /etc/wsl.conf is:"
+cat /etc/wsl.conf
+echo "${Green}Systemd enabled.${Normal}"
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"
