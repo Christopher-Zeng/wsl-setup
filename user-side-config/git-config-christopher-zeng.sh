@@ -16,7 +16,7 @@ Underline=$(tput smul)
 # Execution begins
 echo "${Lime_yellow}Started $Script_name.${Normal}"
 
-# Importable variable: $GitUserName
+# Importable variable: $WinUserName
 
 # Git configurations
 echo "${Green}Configure Git settings.${Normal}"

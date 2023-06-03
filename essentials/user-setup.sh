@@ -16,19 +16,19 @@ Underline=$(tput smul)
 # Execution begins
 echo "${Lime_yellow}Started $Script_name.${Normal}"
 
-# Importable variable: distroUsername
+# Importable variable: DistroUsername
 
 # User configuration
 echo "${Green}Configure new user.${Normal}"
-if [ -z "$distroUsername" ]
+if [ -z "$DistroUsername" ]
 then 
-    read -p "Username: " distroUsername
+    read -p "Username: " DistroUsername
 fi
-sudo adduser $distroUsername
+sudo adduser $DistroUsername
 echo "${Green}Add the current user to sudoer.${Normal}"
-sudo usermod -aG sudo $distroUsername
+sudo usermod -aG sudo $DistroUsername
 echo "${Green}Set the current user to distro default.${Normal}"
-sudo printf "[user]\ndefault=\"$distroUsername\"\n\n[boot]\nsystemd=true\n" >> /etc/wsl.conf
+sudo printf "[user]\ndefault=\"$DistroUsername\"\n\n[boot]\nsystemd=true\n" >> /etc/wsl.conf
 echo "The current content of /etc/wsl.conf is:"
 cat /etc/wsl.conf
 echo "${Green}User setup completes.${Normal}"

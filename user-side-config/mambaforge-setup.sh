@@ -16,28 +16,30 @@ Underline=$(tput smul)
 # Execution begins
 echo "${Lime_yellow}Started $Script_name.${Normal}"
 
+# Importable variable: $DistroUsername
+
 # Setup mambaforge
 echo "${Green}Install Mambaforge.${Normal}"
 wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh -O /tmp/mambaforge.sh
-bash /tmp/mambaforge.sh -b -p /home/$distroUsername/mambaforge
+bash /tmp/mambaforge.sh -b -p /home/$DistroUsername/mambaforge
 cat >>~/.bashrc <<EOF
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/$distroUsername/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/$DistroUsername/mambaforge/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/$distroUsername/mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/$distroUsername/mambaforge/etc/profile.d/conda.sh"
+    if [ -f "/home/$DistroUsername/mambaforge/etc/profile.d/conda.sh" ]; then
+        . "/home/$DistroUsername/mambaforge/etc/profile.d/conda.sh"
     else
-        export PATH="/home/$distroUsername/mambaforge/bin:$PATH"
+        export PATH="/home/$DistroUsername/mambaforge/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
-if [ -f "/home/$distroUsername/mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/home/$distroUsername/mambaforge/etc/profile.d/mamba.sh"
+if [ -f "/home/$DistroUsername/mambaforge/etc/profile.d/mamba.sh" ]; then
+    . "/home/$DistroUsername/mambaforge/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
 
