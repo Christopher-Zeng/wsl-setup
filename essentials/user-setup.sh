@@ -28,7 +28,7 @@ sudo adduser $DistroUsername
 echo "${Green}Add the current user to sudoer.${Normal}"
 sudo usermod -aG sudo $DistroUsername
 echo "${Green}Set the current user to distro default.${Normal}"
-sudo printf "[user]\ndefault=\"$DistroUsername\"\n\n[boot]\nsystemd=true\n" >> /etc/wsl.conf
+sudo printf "[user]\ndefault=\"$DistroUsername\"\n" >> /etc/wsl.conf
 echo "The current content of /etc/wsl.conf is:"
 cat /etc/wsl.conf
 echo "${Green}User setup completes.${Normal}"
