@@ -25,11 +25,11 @@ bash $Script_dir/../essentials/user-setup.sh
 echo "${Lime_yellow}Configuring wsl.conf.${Normal}"
 
 # Configure default user
-sudo printf "[user]\ndefault=\"$DistroUsername\"\n" >> /etc/wsl.conf
+sudo printf "\n[user]\ndefault=\"$DistroUsername\"\n" >> /etc/wsl.conf
 # Enable systemd
-sudo printf "[boot]\nsystemd=true\n" >> /etc/wsl.conf
+sudo printf "\n[boot]\nsystemd=true\n" >> /etc/wsl.conf
 # Disable auto-generation of /etc/resolv.conf
-sudo printf "[network]\ngenerateResolvConf = false\n" >> /etc/wsl.conf
+sudo printf "\n[network]\ngenerateResolvConf = false\n" >> /etc/wsl.conf
 
 # Check wsl.conf
 echo "The current content of /etc/wsl.conf is:"
@@ -37,7 +37,7 @@ cat /etc/wsl.conf
 
 # Refresh APT
 echo "${Lime_yellow}Refreshing APT.${Normal}"
-sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y
+sudo apt update && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean
 
 # Install packages
 echo "${Lime_yellow}Installing packages.${Normal}"
@@ -52,11 +52,11 @@ sudo apt install -y default-jdk openjdk-8-jdk
 
 # Install python
 echo "${Lime_yellow}Installing Mambaforge.${Normal}"
-sudo su - $DistroUsername -c "bash $Script_dir/../user-side-config/mambaforge-setup.sh"
+sudo su - $DistroUsername -c "$Script_dir/../user-side-config/mambaforge-setup.sh"
 
 # Configure git
 echo "${Lime_yellow}Configuring git.${Normal}"
-sudo su - $DistroUsername -c "bash $Script_dir/../user-side-config/git-config-christopher-zeng.sh"
+sudo su - $DistroUsername -c "$Script_dir/../user-side-config/git-config-christopher-zeng.sh"
 
 # Execution ends
 echo "${Lime_yellow}Ended $Script_name.${Normal}"
